@@ -1,0 +1,95 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb, amsthm, enumerate, graphicx}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{bm}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{geometry}
+\geometry{margin=1in}
+\usepackage{float}
+\usepackage{graphics}
+\setlength{\marginparwidth}{2.15cm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{epsfig}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage[normalem]{ulem}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{pgfplots}
+\usepackage[font=scriptsize]{subcaption}
+\usepackage{float}
+\usepackage[]{algorithm2e}
+\usepackage{environ}
+\usepackage{bbm}
+\usepackage{graphicx}
+\usepackage{titling}
+\usepackage{url}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage{lastpage}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage{url}
+\usepackage[nottoc]{tocbibind}
+
+
+
+\begin{document}
+
+\section*{}
+\begin{center}
+  \centerline{\textsc{\LARGE Homework 5}}
+  \vspace{0.5em}
+  \centerline{\textsc{\Large Researching Applications of Machine Learning}}
+  \vspace{1em}
+  \textsc{\large CMU 10-601: Machine Learning (Spring 2017)} \\
+  %% You can comment out these parts if you want.
+  \url{https://piazza.com/cmu/spring2017/10601}
+  \centerline{OUT: March 08, 2017}
+  \centerline{SUMMARY DUE: March 22, 2017 11:59 PM}
+  \centerline{PEER REVIEW DUE: April 5, 2017 11:59 PM} 
+  \centerline{TAs: Rui Sun, Prakruthi Prabhakar, Simon Du, Sarah Schultz}
+
+   %%
+\end{center}
+
+
+
+\section*{}
+\begin{center}
+\centerline{\textbf{\Large Recommender System - Neighborhood-Based Collaborative Filtering}}
+\end{center}
+\section{Data Description}
+\paragraph{I will use the "MovieLens 1M dataset", which comes from University of Minnesota researchers started from 1997(GroupLen research project). The MovieLens dataset is composed from 3 different .dat file which represents generic data file. I think the challenges on this dataset is user bias. For user bias part, the MovieLens data set only collect data from users with at least 20 ratings, however, for people who didn't like to rate movies, those people in the MovieLens dataset maybe no reference value for them.
+}
+
+\section{Task Description}
+\paragraph{The author introduced two implementations of Neighborhood-based collaborative filtering algorithm. One is user-based, another is item-based. The author detailed described how to choose the top-k users/items for user-based/item-based collaborative filtering, and compare the advantages/disadvantages as well as their efficiency. For me, I think there are two challenging things for this algorithn, one is space demand. Although this neighborhood-based algorithm leverage the offline preprocessed data to enhance the online efficiency, however, offline phase costs lots of space and time. Another challenge is sparsity issue, if the top-k nearest neighbors didn't rate move "X", user will not get recommendation of this movie. Finally, the most interesting topic for me is how to integrate user-based and item-based algorithm to create more efficient system online.
+}
+\section{Method}
+\paragraph{
+The Neighborhood-based algorithm calculated the k nearest user/item in advance by cosine similarity/Pearson similarity. Then the predict function will use the weighted average of these neighbors to get the predict value. The most important part to make this algorithm efficient is preprocessing the similarity of the data offline, which let online prediction can get the result very quickly.
+}
+\section{Results}
+\paragraph{
+The Neighborhood-based algorithm is simple, easy to implement and debug as well as interpreted. Generally, item-based method contains higher accuracy because the predicted result is based on the past results of the same user. However, user-based method use prediction of other similar users, which may still exist difference for non-overlapping parts. For me, I don't prefer either method specifically. I like different kinds of movies, if I always get recommandation from item-based, I lose the chance to get suggestion from other users. On the other hand, if always using user-based, I may get movies I don't have interested sometimes.
+}
+\section{Questions about the Paper}
+\paragraph{
+In the 2.3.4, the author told us that item based need less frequently do the offline computing than user-based since the increasing rate of item is much lower than users. However, I wonder know what's the threshold for recomputing the similarity? And how do you decide the threshold value?
+}
+\begin{thebibliography}{1}
+\bibitem{latexcompanion} 
+Charu C. Aggarwal. 
+\textit{Recommender Systems}. 
+Springer International Publishing, Switzerland, 2016.
+ 
+\end{thebibliography}
+
+
+\end{document}
